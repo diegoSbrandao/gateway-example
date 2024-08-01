@@ -1,0 +1,13 @@
+server:
+  port: 8000
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: client_route
+          uri: http://localhost:9000/
+          predicates:
+            - name: Path
+              args:
+                pattern: /cep/**
